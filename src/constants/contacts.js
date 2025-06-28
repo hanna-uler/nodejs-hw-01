@@ -1,6 +1,8 @@
 import path from "node:path";
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
 
-export const PATH_DB = path.resolve("..", "db", "db.json");
-// console.log(PATH_DB);
+const currentPath = fileURLToPath(import.meta.url);
+const currentDirname = dirname(currentPath);
 
-// export const PATH_DB = path.join("..", "db", "db.json");
+export const PATH_DB = path.join(currentDirname, "..", "db", "db.json");
